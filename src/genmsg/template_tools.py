@@ -69,7 +69,7 @@ def _generate_from_spec(input_file, output_dir, template_dir, msg_context, spec,
         # todo, reuse interpreter
         interpreter = em.Interpreter(output=ofile, globals=g, options={em.RAW_OPT:True,em.BUFFERED_OPT:True})
         if not os.path.isfile(template_file):
-            raise RuntimeError, "Template file %s not found in template dir %s" % (template_file_name, template_dir)
+            raise RuntimeError("Template file %s not found in template dir %s" % (template_file_name, template_dir))
         interpreter.file(open(template_file)) #todo try
         interpreter.shutdown()
 
@@ -167,7 +167,7 @@ def generate_module(package_name, output_dir, template_dir, template_dict):
         interpreter = em.Interpreter(output=ofile, options={em.RAW_OPT:True,em.BUFFERED_OPT:True})
         interpreter.updateGlobals(g)
         if not os.path.isfile(template_file):
-            raise RuntimeError, "Template file %s not found in template dir %s" % (template_file_name, template_dir)
+            raise RuntimeError("Template file %s not found in template dir %s" % (template_file_name, template_dir))
         interpreter.file(open(template_file)) #todo try
         interpreter.shutdown()
 
